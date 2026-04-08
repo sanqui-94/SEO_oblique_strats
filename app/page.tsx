@@ -1,4 +1,11 @@
+import type { Metadata } from "next"
 import { Button } from "@/components/ui/button"
+
+export const metadata: Metadata = {
+  title: "Draw a Card",
+  description:
+    "Draw a random Oblique Strategies card and let chance guide your next creative move.",
+}
 
 export default function Page() {
   return (

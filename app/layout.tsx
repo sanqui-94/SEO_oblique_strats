@@ -1,8 +1,19 @@
+import type { Metadata } from "next"
 import { Geist, Geist_Mono, Outfit } from "next/font/google"
 
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/utils"
+
+export const metadata: Metadata = {
+  metadataBase: new URL("http://localhost:3000"),
+  title: {
+    default: "Oblique Strategies",
+    template: "%s | Oblique Strategies",
+  },
+  description:
+    "A digital deck of Brian Eno and Peter Schmidt's Oblique Strategies cards to help break creative deadlocks.",
+}
 
 const outfit = Outfit({subsets:['latin'],variable:'--font-sans'})
 
