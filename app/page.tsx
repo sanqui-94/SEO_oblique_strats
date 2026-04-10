@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 import { getAllStrategies } from "@/lib/strategies"
+import JsonLd from "@/components/json-ld"
 
 export const metadata: Metadata = {
   title: "Draw a Card",
@@ -9,6 +10,15 @@ export const metadata: Metadata = {
 
 export default async function Page() {
   const strategies = getAllStrategies()
+
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    name: "Oblique Strategies",
+    description:
+      "A digital deck of Brian Eno and Peter Schmidt's Oblique Strategies cards to help break creative deadlocks.",
+    url: "https://oblique-strats.vercel.app/",
+  }
 
   return (
     <div className="flex min-h-svh p-6">
@@ -24,6 +34,7 @@ export default async function Page() {
           ))}
         </ul>
       </div>
+      <JsonLd data={jsonLd} />
     </div>
   )
 }
