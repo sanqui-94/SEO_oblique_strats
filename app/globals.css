@@ -48,13 +48,15 @@
 }
 
 :root {
-    --background: oklch(1 0 0);
+    /* #F6F4F8 — "Secondary" from design system */
+    --background: oklch(0.974 0.005 285);
     --foreground: oklch(0.145 0 0);
-    --card: oklch(1 0 0);
+    --card: oklch(0.99 0 0);
     --card-foreground: oklch(0.145 0 0);
-    --popover: oklch(1 0 0);
+    --popover: oklch(0.99 0 0);
     --popover-foreground: oklch(0.145 0 0);
-    --primary: oklch(0.508 0.118 165.612);
+    /* #008374 — "Primary" from design system */
+    --primary: oklch(0.505 0.115 168);
     --primary-foreground: oklch(0.979 0.021 166.113);
     --secondary: oklch(0.967 0.001 286.375);
     --secondary-foreground: oklch(0.21 0.006 285.885);
@@ -122,6 +124,8 @@
     }
   body {
     @apply bg-background text-foreground;
+    background-image: radial-gradient(circle, oklch(0.82 0.004 285 / 0.7) 1px, transparent 1px);
+    background-size: 20px 20px;
     }
   html {
     @apply font-sans;

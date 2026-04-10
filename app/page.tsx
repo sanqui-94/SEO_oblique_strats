@@ -1,6 +1,8 @@
 import type { Metadata } from "next"
+import Link from "next/link"
 import { getAllStrategies } from "@/lib/strategies"
 import JsonLd from "@/components/json-ld"
+import StrategyCard from "@/components/strategy-card"
 
 export const metadata: Metadata = {
   title: "Draw a Card",
@@ -8,7 +10,7 @@ export const metadata: Metadata = {
     "Draw a random Oblique Strategies card and let chance guide your next creative move.",
 }
 
-export default async function Page() {
+export default function Page() {
   const strategies = getAllStrategies()
 
   const jsonLd = {
@@ -21,19 +23,27 @@ export default async function Page() {
   }
 
   return (
-    <div className="flex min-h-svh p-6">
-      <div className="flex max-w-2xl min-w-0 flex-col gap-4">
-        <h1 className="text-lg font-medium">Oblique Strategies</h1>
-        <ul className="flex flex-col gap-1 text-sm">
-          {strategies.map((strategy) => (
-            <li key={strategy.id}>
-              <a href={`/strategies/${strategy.slug}`} className="hover:underline">
-                {strategy.text}
-              </a>
-            </li>
-          ))}
-        </ul>
-      </div>
+    <div className="flex min-h-svh flex-col">
+      {/* Navbar */}
+      <header className="flex items-center justify-between border-b border-border/50 bg-background/80 px-8 py-5 backdrop-blur-sm">
+        <span className="text-base font-semibold tracking-tight">Oblique Strategies</span>
+        <nav className="flex items-center gap-7 text-sm text-muted-foreground">
+          <Link href="/about" className="transition-colors hover:text-foreground">
+            About
+          </Link>
+        </nav>
+      </header>
+
+      {/* Main */}
+      <main className="flex flex-1 items-center justify-center px-6 py-12">
+        <StrategyCard strategies={strategies} />
+      </main>
+
+      {/* Footer */}
+      <footer className="flex items-center justify-between border-t border-border/50 px-8 py-5">
+        <span className="text-xs text-muted-foreground">2026 Sanqui Dev</span>
+      </footer>
+
       <JsonLd data={jsonLd} />
     </div>
   )

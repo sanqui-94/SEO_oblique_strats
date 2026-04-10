@@ -1,12 +1,12 @@
 import type { Metadata } from "next"
-import { Geist, Geist_Mono, Outfit } from "next/font/google"
+import { Manrope, Geist_Mono } from "next/font/google"
 
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
 import { cn } from "@/lib/utils"
 
 export const metadata: Metadata = {
-  metadataBase: new URL("http://localhost:3000"),
+  metadataBase: new URL("https://oblique-strats.vercel.app"),
   title: {
     default: "Oblique Strategies",
     template: "%s | Oblique Strategies",
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     "A digital deck of Brian Eno and Peter Schmidt's Oblique Strategies cards to help break creative deadlocks.",
 }
 
-const outfit = Outfit({subsets:['latin'],variable:'--font-sans'})
+const manrope = Manrope({ subsets: ["latin"], variable: "--font-sans" })
 
 const fontMono = Geist_Mono({
   subsets: ["latin"],
@@ -31,7 +31,7 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={cn("antialiased", fontMono.variable, "font-sans", outfit.variable)}
+      className={cn("antialiased", fontMono.variable, manrope.variable)}
     >
       <body>
         <ThemeProvider>{children}</ThemeProvider>
