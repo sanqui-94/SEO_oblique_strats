@@ -26,13 +26,14 @@ export default function StrategyCard({ strategies }: { strategies: Strategy[] })
   return (
     <div className="flex flex-col items-center gap-6">
       {/* Card */}
-      <div
-        role="button"
-        tabIndex={0}
-        onKeyDown={(e) => e.key === "Enter" && handleClick()}
+      <button
+        type="button"
         aria-label={isIdle ? "Draw a card" : "Draw another card"}
         onClick={handleClick}
-        className="relative h-[26rem] w-72 cursor-pointer overflow-hidden rounded-2xl shadow-sm transition-shadow duration-200 hover:shadow-md"
+        className={cn(
+          "relative h-[26rem] w-72 cursor-pointer overflow-hidden rounded-2xl border-0 bg-transparent p-0 shadow-sm transition-shadow duration-200 hover:shadow-md",
+          "outline-none focus-visible:ring-3 focus-visible:ring-ring/30",
+        )}
       >
         {/* Idle/drawn face — teal card back with sparkles */}
         <div
@@ -65,7 +66,7 @@ export default function StrategyCard({ strategies }: { strategies: Strategy[] })
             </p>
           </div>
         </div>
-      </div>
+      </button>
 
       {/* Hint */}
       <p className="h-4 text-center text-xs italic text-muted-foreground">

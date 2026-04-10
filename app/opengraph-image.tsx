@@ -46,7 +46,7 @@ export default function Image() {
             maxWidth: 700,
           }}
         >
-          Brian Eno &amp; Peter Schmidt's cards for breaking creative deadlocks
+          {"Brian Eno & Peter Schmidt's cards for breaking creative deadlocks"}
         </div>
       </div>
     ),
